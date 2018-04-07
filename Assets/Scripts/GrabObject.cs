@@ -36,7 +36,7 @@ public class GrabObject : MonoBehaviour {
                 grabbedObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 grabbedObject.GetComponent<Rigidbody2D>().isKinematic = true;
 
-                heands.SetActive(true);
+                //heands.SetActive(true);
             }
             else
             {
@@ -47,7 +47,7 @@ public class GrabObject : MonoBehaviour {
                     grabbedObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(throwForse * playerRootObject.lossyScale.x, -throwForse/10), ForceMode2D.Impulse);
                     grabbedObject = null;
 
-                    heands.SetActive(false);
+                    //heands.SetActive(false);
                 }
             }
                
