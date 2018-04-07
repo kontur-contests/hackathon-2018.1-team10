@@ -20,6 +20,6 @@ public class CamPosCalculation : MonoBehaviour {
     void FixedUpdate()
     {
 
-        transform.position = new Vector3((player1Pos.position.x + player2Pos.position.x) / 2, (player1Pos.position.y + player2Pos.position.y) / 2, (player1Pos.position.z + player2Pos.position.z) / 2);
+        transform.position = new Vector3((player1Pos.position.x + player2Pos.position.x) / 2, 0);
     }
 }
