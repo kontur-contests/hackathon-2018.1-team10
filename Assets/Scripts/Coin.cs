@@ -20,10 +20,10 @@ public class Coin : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.gameObject.tag == "Player1")
+        if (coll.gameObject.name == "Player1")
             SceneManager.LoadScene(player1WinSceneName);
 
-        if (coll.gameObject.tag == "Player2")
+        if (coll.gameObject.name == "Player2")
             SceneManager.LoadScene(player2WinSceneName);
     }
 }
