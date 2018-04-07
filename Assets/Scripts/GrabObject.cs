@@ -33,6 +33,7 @@ public class GrabObject : MonoBehaviour {
                 grabbedObject = collidedObject;
                 grabbedObject.transform.position = grabObjectPos.position;
                 grabbedObject.transform.parent = gameObject.transform;
+                grabbedObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 grabbedObject.GetComponent<Rigidbody2D>().isKinematic = true;
 
                 heands.SetActive(true);
@@ -43,7 +44,7 @@ public class GrabObject : MonoBehaviour {
                 {
                     grabbedObject.transform.parent = null;
                     grabbedObject.GetComponent<Rigidbody2D>().isKinematic = false;
-                    grabbedObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(throwForse * playerRootObject.lossyScale.x, throwForse), ForceMode2D.Impulse);
+                    grabbedObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(throwForse * playerRootObject.lossyScale.x, -throwForse/10), ForceMode2D.Impulse);
                     grabbedObject = null;
 
                     heands.SetActive(false);
@@ -55,13 +56,13 @@ public class GrabObject : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        if (coll.tag == "GrabObject" || coll.tag == "Player")
+        if (coll.tag == "GrabObject")
             collidedObject = coll.gameObject;
     }
 
     void OnTriggerExit2D(Collider2D coll)
     {
-        if (coll.tag == "GrabObject" || coll.tag == "Player")
+        if (coll.tag == "GrabObject")
             collidedObject = null;
     }
 }
