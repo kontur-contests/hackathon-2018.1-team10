@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class GrabObject : MonoBehaviour {
 
-    public bool hasObjectForGrab;
+    public Transform playerRootObject;
+
     public KeyCode grabKey;
-    public GameObject objectForGrab;
+    public float throwForse;
+
+    public GameObject grabbedObject;
+
+
 
     public Transform grabObjectPos;
 
     public GameObject heands;
+
+    public GameObject collidedObject;
 
 	// Use this for initialization
 	void Start () {
@@ -21,29 +28,35 @@ public class GrabObject : MonoBehaviour {
 	void FixedUpdate () {
 		if(Input.GetKeyDown(grabKey))
         {
-            if (hasObjectForGrab)
+            if (collidedObject != null && grabbedObject == null)
             {
-                objectForGrab.transform.position = grabObjectPos.position;
-                objectForGrab.transform.parent = gameObject.transform;
-                objectForGrab.GetComponent<Rigidbody2D>().isKinematic = true;
+                grabbedObject = collidedObject;
+                grabbedObject.transform.position = grabObjectPos.position;
+                grabbedObject.transform.parent = gameObject.transform;
+                grabbedObject.GetComponent<Rigidbody2D>().isKinematic = true;
+
+                heands.SetActive(true);
             }
             else
             {
-                objectForGrab.transform.parent = null;
-                objectForGrab.GetComponent<Rigidbody2D>().isKinematic = false;
-                objectForGrab = null;
+                grabbedObject.transform.parent = null;
+                grabbedObject.GetComponent<Rigidbody2D>().isKinematic = false;
+                grabbedObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(throwForse * playerRootObject.lossyScale.x, throwForse), ForceMode2D.Impulse);
+                grabbedObject = null;
+
+                heands.SetActive(false);
             }
+               
         }
 	}
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        hasObjectForGrab = true;
-        objectForGrab = coll.gameObject;
+        collidedObject = coll.gameObject;
     }
 
     void OnTriggerExit2D(Collider2D coll)
     {
-        hasObjectForGrab = false;
+        collidedObject = null;
     }
 }
