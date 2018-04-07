@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour {
     {
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
 
-        if (Input.GetKeyDown(jumpKey) && grounded)
+        if (Input.GetKey(jumpKey) && grounded)
         {
             rb.AddForce(Vector2.up * jump,ForceMode2D.Impulse);
         }
