@@ -28,7 +28,7 @@ public class GrabObject : MonoBehaviour {
 	void FixedUpdate () {
 		if(Input.GetKeyDown(grabKey))
         {
-            if (collidedObject != null && grabbedObject == null)
+            if (collidedObject != null && grabbedObject == null && collidedObject.transform.parent == null)
             {
                 grabbedObject = collidedObject;
                 grabbedObject.transform.position = grabObjectPos.position;
