@@ -18,6 +18,5 @@ public class Death : MonoBehaviour {
     {
         if (coll.gameObject.tag == "Killer")
             Debug.Log("Lose");
-
     }
 }
