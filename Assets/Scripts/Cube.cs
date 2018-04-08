@@ -26,6 +26,8 @@ public class Cube : MonoBehaviour {
         {
             GameObject go = (GameObject)Instantiate(explosionPrefub, gameObject.transform.position, explosionPrefub.transform.rotation);
 
+            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
             gameObject.transform.position = cubeSpawnPos.position;
 
             anim.Play("SpawnCube");
