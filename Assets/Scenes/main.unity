@@ -152,6 +152,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 21
       objectReference: {fileID: 0}
+    - target: {fileID: 1003728426459804, guid: b49543afc23f259419f99184d9a8343a, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b49543afc23f259419f99184d9a8343a, type: 2}
   m_IsPrefabParent: 0
@@ -2692,6 +2696,10 @@ Prefab:
     - target: {fileID: 4769341569957800, guid: e7ef564b26ee69f4a946aa97f49e46bb, type: 2}
       propertyPath: m_RootOrder
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016877067405224, guid: e7ef564b26ee69f4a946aa97f49e46bb, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e7ef564b26ee69f4a946aa97f49e46bb, type: 2}
@@ -9359,8 +9367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3925a67d5f56e2439a6545e427f7d5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1WinSceneName: player1win
-  player2WinSceneName: player2win
+  finalScene: final
 --- !u!1 &1523398708
 GameObject:
   m_ObjectHideFlags: 0
@@ -11480,8 +11487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3925a67d5f56e2439a6545e427f7d5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1WinSceneName: player1win
-  player2WinSceneName: player2win
+  finalScene: 
 --- !u!1 &1893946193
 GameObject:
   m_ObjectHideFlags: 0
