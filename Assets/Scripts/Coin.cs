@@ -5,11 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Coin : MonoBehaviour {
 
-    public string finalScene;
+    public string player1sceneName;
+    public string player2sceneName;
 
 	// Use this for initialization
 	void Start () {
-		
+
 	}
 	
 	// Update is called once per frame
@@ -20,6 +21,12 @@ public class Coin : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.name == "Player1" || coll.gameObject.name == "Player2")
-            SceneManager.LoadScene(finalScene);
+        {
+            if (coll.gameObject.name == "Player1")
+                SceneManager.LoadScene(player1sceneName);
+
+            if (coll.gameObject.name == "Player2")
+                SceneManager.LoadScene(player2sceneName);
+        }
     }
 }
